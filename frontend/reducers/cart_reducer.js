@@ -1,6 +1,6 @@
 import { POST_TO_CART, REMOVE_FROM_CART } from '../actions/cart_actions';
 
-const cartsReducer = (oldState = {}, action) => {
+const cartReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     let newState;
     switch (action.type) {
@@ -16,4 +16,4 @@ const cartsReducer = (oldState = {}, action) => {
     }
 };
 
-export default cartsReducer;
+export default cartReducer;
