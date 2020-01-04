@@ -1,24 +1,17 @@
-import {
-    RECEIVE_ALL_SHOES,
-    RECEIVE_SHOE
-} from '../actions/shoes_actions';
-
-const shoesReducer = (oldState = {}, action) => {
+import { RECEIVE_ORDER } from '../actions/orders_actions';
+const ordersReducer = (oldState={}, action) => {
     Object.freeze(oldState);
-
-    let shoe;
-    switch (action.type) {
+    
+    let newState;
+    switch(action.type) {
         case RECEIVE_ALL_SHOES:
-            return Object.assign({}, oldState, action.payload.shoes);
-        case RECEIVE_SHOE:
-            shoe = action.shoe;
-
-            const newShoe = { [action.shoe.id]: action.shoe };
-
-            return Object.assign({}, oldState, newShoe);
+            return action.payload.orders;
+        case RECEIVE_ORDER:
+            newState = Object.assign({}, oldState, action.orders);
+            return newState;
         default:
             return oldState;
     }
 };
 
-export default shoesReducer;
+export default ordersReducer;
