@@ -24,5 +24,16 @@ const receiveShoe = (shoe) => {
     );
 }
 
+export const fetchAllShoes = () => dispatch => {
+    APIUtil.fetchAllShoes()
+        .then(shoeData => {
+            return dispatch(receiveAllShoes(shoeData))
+        })
+};
+
+export const fetchShoe = (shoeId) => dispatch => {
+    APIUtil.fetchShoe(shoeId)
+        .then(shoe => dispatch(receiveShoe(shoe)))
+};
 
 
