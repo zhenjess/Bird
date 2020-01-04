@@ -8,11 +8,14 @@ import ordersReducer from './orders_reducer';
 
 import cartsReducer from './carts_reducer';
 
+import modalReducer from './modal_reducer';
+
 const entitiesReducer = combineReducers({
     users: usersReducer,
     shoes: shoesReducer,
     orders: ordersReducer,
-    carts: cartsReducer
+    carts: cartsReducer, 
+    modal: modalReducer
 });
 
 export default entitiesReducer; //represents data from db and manages it
