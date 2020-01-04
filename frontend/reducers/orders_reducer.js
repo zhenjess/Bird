@@ -1,4 +1,7 @@
 import { RECEIVE_ORDER } from '../actions/orders_actions';
+
+import { RECEIVE_ALL_SHOES } from '../actions/shoes_actions';
+
 const ordersReducer = (oldState={}, action) => {
     Object.freeze(oldState);
     
@@ -15,3 +18,4 @@ const ordersReducer = (oldState={}, action) => {
 };
 
 export default ordersReducer;
+
