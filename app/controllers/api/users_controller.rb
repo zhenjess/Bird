@@ -39,8 +39,4 @@ class Api::UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:email, :first_name, :last_name, :password, :confirm_password)
     end
-
-    def ensure_cart
-        @user.update(cart_id: (@user.cart_id || Cart.create(user_id: @user.id).id))
-    end 
 end
