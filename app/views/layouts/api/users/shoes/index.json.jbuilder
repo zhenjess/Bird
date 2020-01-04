@@ -1,4 +1,4 @@
-json.shoes do 
+json.shoes do #add shoes to payload
     @shoes.each do |shoe|
         json.set! shoe.id do
             json.extract! shoe, :id, :model, :gender, :color, :material, :size, :price
