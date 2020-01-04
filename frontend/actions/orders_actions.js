@@ -2,7 +2,7 @@ import * as APIUtil from '../util/orders_api_util';
 
 export const RECEIVE_ORDER = "RECEIVE_ORDER";
 
-export const REMOVE_ORDER = "REMOVE_ORDER";
+// export const REMOVE_ORDER = "REMOVE_ORDER";
 
 //order action creators
 
@@ -13,12 +13,12 @@ const receiveOrder = (response) => {
     });
 };
 
-const removeOrder = (response) => {
-    return ({
-        type: REMOVE_ORDER, 
-        orderId: Object.keys(response.orders)
-    });
-};
+// const removeOrder = (response) => {
+//     return ({
+//         type: REMOVE_ORDER, 
+//         orderId: Object.keys(response.orders)
+//     });
+// };
 
 //thunk order action creators
 
@@ -33,8 +33,8 @@ export const updateOrder = (user, order) => dispatch => {
         .then(response => dispatch(receiveOrder(response)));
 }
 
-export const removeOrder = (user, order) => dispatch => {
-    return APIUtil.removeOrder(user, order) 
-        .then(response => dispatch(removeOrder(response)));
-}
+// export const removeOrder = (user, order) => dispatch => {
+//     return APIUtil.removeOrder(user, order) 
+//         .then(response => dispatch(removeOrder(response)));
+// }
 

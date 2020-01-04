@@ -11,14 +11,6 @@ const postToCart = (payload) => {
     });
 };
 
-const removeCartOrder = (id, shoeSize) => {
-    return ({
-        type: REMOVE_FROM_CART,
-        id,
-        shoeSize
-    });
-};
-
 function receiveOrders(shoe, size) {
     let state = Object.assign({}, shoe, { size });
     let key = `${shoe.id}-${size}`;
@@ -26,6 +18,14 @@ function receiveOrders(shoe, size) {
         [key]: state
     });
 }
+
+const removeCartOrder = (id, size) => {
+    return ({
+        type: REMOVE_FROM_CART,
+        id,
+        size
+    });
+};
 
 export const addToCart = (order, size) => dispatch => {
     const payload = receiveOrders(order, size);
