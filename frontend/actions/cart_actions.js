@@ -1,4 +1,3 @@
-import * as APIUtil from '../util/cart_api_util';
 
 //action creators
 export const POST_TO_CART = "POST_TO_CART";
@@ -43,3 +42,4 @@ export const removeFromCart = (id, size) => dispatch => {
     }
     return _func(id, size);
 }
+
