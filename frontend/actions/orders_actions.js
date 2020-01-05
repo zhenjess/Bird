@@ -1,10 +1,19 @@
 import * as APIUtil from '../util/orders_api_util';
 
+export const RECEIVE_ORDERS = "RECEIVE_ORDERS";
+
 export const RECEIVE_ORDER = "RECEIVE_ORDER";
 
 // export const REMOVE_ORDER = "REMOVE_ORDER";
 
 //order action creators
+
+const fetchShoeOrders = orders => {
+    return ({
+        type: RECEIVE_ORDERS,
+        orders: orders
+    });
+};
 
 const receiveOrder = (response) => {
     return ({
@@ -23,22 +32,31 @@ const receiveOrder = (response) => {
 //thunk order action creators
 
 //create, update, remove user's order
-export const createOrder = (user, order) => dispatch => {
-    return APIUtil.createOrder(user, order)
+export const fetchOrders = (id) => (dispatch) => (
+    receiveShoeOrders(id)
+        .then(orders => dispatch(fetchShoeOrders(orders)))
+);
+
+export const createShoeOrder = (orderId, gender) => dispatch => {
+    return ApiUtil.createShoeOrder(orderId, gender)
         .then(response => dispatch(receiveOrder(response)));
 }
 
-export const updateOrder = (user, order) => dispatch => {
-    return APIUtil.updateOrder(user, order) 
+export const updateShoeOrder = (orderId, gender) => dispatch => {
+    return ApiUtil.updateShoeOrder(orderId, gender)
         .then(response => dispatch(receiveOrder(response)));
 }
+
+
+
+
+
+
 
 // export const removeOrder = (user, order) => dispatch => {
 //     return APIUtil.removeOrder(user, order) 
 //         .then(response => dispatch(removeOrder(response)));
 // }
-
-import { receiveShoeItems } from "../util/items_api_util";
 
 export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
 
@@ -51,7 +69,7 @@ const fetchShoeItems = items => {
 
 export const fetchItems = (id) => (dispatch) => (
     receiveShoeItems(id)
-    .then( items => dispatch(fetchShoeItems(items)))
+        .then(items => dispatch(fetchShoeItems(items)))
 );
 
 
